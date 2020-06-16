@@ -1,6 +1,6 @@
 # RoG
 This package contains MatLab functions for training and inference of the Ratio of Gaussians (RoG) model.
-An example file is provided to illustrate how to generate synthetic RoG data, estimate model paramenters, and perform inference of the latent normalization signal. 
+An example file is provided to illustrate how to generate synthetic RoG data, fit, and perform inference of the latent normalization signal. 
 
 
 The package is available from the webpage: 
