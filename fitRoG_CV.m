@@ -62,7 +62,7 @@ for k=1:size(r,2)
             UB =        [r_max*2    100^2    20  2   20/1  2    sig2_eta*10];
             
             options = optimoptions(@fmincon,'Algorithm','sqp','MaxIter',1000,'Display','off','TolX',1e-6,'TolFun',1e-6,'TolCon',1e-3);
-            %     [o, nLL] = fmincon(@(oo)negloglik2(oo,X,mu_eta,mu_r,sig2_r,'ContrastResp'),ostart,[],[],[],[],LB,UB,[],options); %*** do not fit external noise level
+            %     [o(k,:), nLL] = fmincon(@(oo)negloglik2(oo,X,mu_eta,mu_r,sig2_r,'ContrastResp'),ostart,[],[],[],[],LB,UB,[],options); %*** do not fit external noise level
             [o(k,:), ~] = fmincon(@(oo)negloglik(oo,X,mu_eta,mu_r,sig2_r,'ContrastResp'),ostart,[],[],[],[],LB,UB,[],options); %*** fit external noise level
             
             [mu_N,mu_D,sig2_N,sig2_D] = ContrastResp(o(k,:),X);
