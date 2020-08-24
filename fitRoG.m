@@ -56,7 +56,11 @@ switch whichFit
         options = optimoptions(@fmincon,'Algorithm','sqp','MaxIter',10000,'Display','off','TolX',1e-6,'TolFun',1e-6,'TolCon',1e-3);
         %     [o, nLL] = fmincon(@(oo)negloglik2(oo,X,mu_eta,mu_r,sig2_r,'ContrastResp'),ostart,[],[],[],[],LB,UB,[],options); %*** do not fit external noise level
         [o, nLL] = fmincon(@(oo)negloglik(oo,X,mu_eta,mu_r,sig2_r,'ContrastResp'),ostart,[],[],[],[],LB,UB,[],options); %*** fit external noise level
-        
+        %**RCC added 2020.08.23
+        if isempty(nLL)
+            nLL=NaN;
+        end
+        %**
         nLLsaturated = negloglik_saturated(sig2_r);
         nLLnull = negloglik_null(r,mu_r,sig2_r);
         nLL = (nLL-nLLnull)./(nLLsaturated-nLLnull);
@@ -75,7 +79,11 @@ switch whichFit
         
         options = optimoptions(@fmincon,'Algorithm','sqp','MaxIter',10000,'Display','off','TolX',1e-6,'TolFun',1e-6,'TolCon',1e-3);
         [o, nLL] = fmincon(@(oo)negloglik_NegBin(oo,X,r,'ContrastRespMean'),ostart,[],[],[],[],LB,UB,[],options);
-        
+        %**RCC added 2020.08.23
+        if isempty(nLL)
+            nLL=NaN;
+        end
+        %**
         nLLsaturated = negloglik_NegBin_saturated(r,mu_r,sig2_r);
         nLLnull = negloglik_NegBin_null(r);
         nLL = (nLL-nLLnull)./(nLLsaturated-nLLnull);
