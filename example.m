@@ -185,7 +185,7 @@ set(gca,'xscale','log','xlim',varRatio([1 end]),'ylim',[-.2 .2])
 %* constants
 Ntrials = 10000;
 Nconditions = 50;
-contrast = exp(linspace(log(6),log(100),Nconditions))';
+contrast = exp(linspace(log(6),log(100),Nconditions))'; %** NOTE: 'fitRoG' and 'fitRoG_CV' assume contrast on a 0-100 scale, i.e. percent contrast
 Nexp = 100;
 %*** mean parameters
 r_max = 10;
