@@ -7,6 +7,7 @@ function [nLL, o] = fitRoG_CV(r,X,mu_eta,sig2_eta,whichFit)
 % - r is the data matrix for one neuron/experiment (stimulus conditions x trials) 
 % - X is the vector of stimulus values, e.g. contrast levels. 
 %   size(X,1) == size(r,1)
+%**** NOTE: 'fitRoG' and 'fitRoG_CV' assume contrast on a 0-100 scale, i.e. percent contrast ****%
 % - mu_eta, sig2_eta are the mean and variance of the spontaneous activity
 % - whichFit: optional input
 %
