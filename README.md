@@ -14,7 +14,7 @@ Journal of Neuroscience 39(37):7344, 2019.
 
 HOW TO GET STARTED:
 - example.m
-This file illustrates how to generate synthetic RoG data, estimate model paramenters, and perform inference of the latent normalization signal. 
+This file illustrates how to generate synthetic RoG data, estimate model parameters, and perform inference of the latent normalization signal. 
 
 
 
